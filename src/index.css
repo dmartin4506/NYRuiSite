@@ -1,0 +1,344 @@
+/*
+  Typography: placeholder families until Scandia files are added.
+  To use Scandia: add .woff2 files under public/fonts/, then define @font-face
+  for Scandia Line Stencil, Bold, and Regular, and set --font-title,
+  --font-subtitle, and --font-body below.
+*/
+:root {
+  --font-title: 'Syne', system-ui, sans-serif;
+  --font-subtitle: 'DM Sans', system-ui, sans-serif;
+  --font-body: 'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif;
+
+  --color-bg: #000000;
+  --color-fg: #ffffff;
+  --color-muted: rgba(255, 255, 255, 0.72);
+
+  --article-wide: 48rem;
+  --article-narrow: 40rem;
+
+  --body-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --subtitle-size: clamp(1rem, 0.9rem + 0.35vw, 1.2rem);
+  --p1-title-size: clamp(1.75rem, 1.25rem + 2vw, 3rem);
+  --overall-title-size: clamp(2.5rem, 1.5rem + 4vw, 4.25rem);
+  --quote-size: clamp(1.35rem, 1.1rem + 1vw, 2rem);
+
+  --vertical-section: clamp(3.5rem, 8vw, 6rem);
+  --text-leading: 1.68;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: var(--text-leading);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ----- T1 Article column ----- */
+.article {
+  margin-inline: auto;
+  padding: var(--vertical-section) 1.5rem;
+}
+
+.article--wide {
+  max-width: var(--article-wide);
+}
+
+.article--narrow {
+  max-width: var(--article-narrow);
+}
+
+.article__prose p {
+  margin: 0 0 1.25em;
+  text-align: left;
+}
+
+.article__prose p:last-child {
+  margin-bottom: 0;
+}
+
+.overall-title {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: var(--overall-title-size);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin: 0 auto var(--vertical-section);
+  max-width: var(--article-wide);
+  padding: var(--vertical-section) 1.5rem 0;
+}
+
+.section-heading {
+  font-family: var(--font-subtitle);
+  font-weight: 700;
+  font-size: var(--subtitle-size);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin: 0 0 1rem;
+}
+
+/* ----- Quote hero: sticky bg + scrolling quote layer (QuoteHero.tsx) ----- */
+.quote-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--color-bg);
+}
+
+.quote-hero__scroll {
+  position: relative;
+  min-height: 130dvh;
+}
+
+.quote-hero__sticky-bg {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 100dvh;
+  width: 100%;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-hero__sticky-bg {
+    will-change: auto;
+  }
+}
+
+.quote-hero__media {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  display: block;
+}
+
+.quote-hero__layer {
+  position: relative;
+  z-index: 1;
+  margin-top: -100dvh;
+  min-height: 130dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-hero__layer {
+    will-change: auto;
+  }
+}
+
+.quote-hero__box {
+  background: var(--color-bg);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  max-width: min(42rem, 90vw);
+  width: 100%;
+}
+
+.quote-hero__text {
+  font-family: var(--font-body);
+  font-size: var(--quote-size);
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+  margin: 0;
+}
+
+.quote-hero__cite {
+  display: block;
+  margin-top: 1.25rem;
+  font-family: var(--font-subtitle);
+  font-weight: 700;
+  font-size: 0.95rem;
+  font-style: normal;
+  color: var(--color-muted);
+}
+
+/* ----- P1 ----- */
+.p1 {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  isolation: isolate;
+}
+
+.p1__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.p1__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    transparent 72%
+  );
+  pointer-events: none;
+}
+
+.p1__content {
+  position: relative;
+  z-index: 1;
+  padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 4vw, 2.5rem);
+  max-width: 52rem;
+}
+
+.p1__title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: var(--p1-title-size);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+}
+
+.p1__subtitle {
+  font-family: var(--font-subtitle);
+  font-weight: 700;
+  font-size: var(--subtitle-size);
+  line-height: 1.35;
+  margin: 0;
+  max-width: 40ch;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ----- P2 ----- */
+.p2 {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.p2__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.p2__caption {
+  position: relative;
+  z-index: 1;
+  max-width: min(var(--article-narrow), calc(100% - 3rem));
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: var(--text-leading);
+  margin: 0;
+}
+
+/* ----- P3 ----- */
+.p3-wrap {
+  padding: var(--vertical-section) 1.5rem 0;
+  max-width: var(--article-narrow);
+  margin-inline: auto;
+}
+
+.p3 {
+  width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.p3 img {
+  width: 100%;
+  height: auto;
+}
+
+/* ----- P4 scroll grid ----- */
+.p4 {
+  padding: var(--vertical-section) 1.5rem;
+  max-width: min(52rem, 100%);
+  margin-inline: auto;
+}
+
+.p4__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.p4__cell {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 2px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition:
+    opacity 0.35s ease,
+    outline-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p4__cell {
+    transition: none;
+  }
+}
+
+.p4__cell--dim {
+  opacity: 0.42;
+}
+
+.p4__cell--active {
+  opacity: 1;
+  outline-color: rgba(255, 255, 255, 0.65);
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.p4__cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
