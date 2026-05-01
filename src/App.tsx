@@ -1,7 +1,7 @@
 import { ArticleColumn } from './components/ArticleColumn'
 import { P1Section } from './components/P1Section'
 import { P2Section } from './components/P2Section'
-import { QuoteHero } from './components/QuoteHero'
+import { ScrollyHero, type ScrollySlide } from './components/ScrollyHero'
 import { ScrollHighlightGrid, type GridItem } from './components/ScrollHighlightGrid'
 import {
   beforeGrid,
@@ -17,6 +17,12 @@ import {
   quotes,
   toParagraphs,
 } from './content/articleCopy'
+
+const heroSlides: ScrollySlide[] = [
+  { imageUrl: images.quote1, quote: quotes[0] },
+  { imageUrl: images.quote2, quote: quotes[1] },
+  { imageUrl: images.quote3, quote: quotes[2] },
+]
 
 const gridItems: [GridItem, GridItem, GridItem, GridItem] = [
   { src: images.grid[0], alt: 'Panel one: placeholder street scene' },
@@ -39,9 +45,7 @@ function Prose({ text }: { text: string }) {
 export default function App() {
   return (
     <main>
-      <QuoteHero imageUrl={images.quote1} quote={quotes[0]} />
-      <QuoteHero imageUrl={images.quote2} quote={quotes[1]} />
-      <QuoteHero imageUrl={images.quote3} quote={quotes[2]} />
+      <ScrollyHero slides={heroSlides} />
 
       <header>
         <h1 className="overall-title">{overallTitle}</h1>
