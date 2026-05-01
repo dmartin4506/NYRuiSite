@@ -211,6 +211,28 @@ img {
   }
 }
 
+/* ----- Caption slide-in from left (P2Section) ----- */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.slide-left--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-left {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ----- Kinetic title word-by-word reveal (KineticTitle) ----- */
 .kt-word {
   display: inline-block;
@@ -296,11 +318,23 @@ img {
 
 .p1__media {
   position: absolute;
-  inset: 0;
+  /* 10 % bleed on each side gives room for the scroll-parallax translateY */
+  top: -10%;
+  bottom: -10%;
+  left: 0;
+  right: 0;
   width: 100%;
-  height: 100%;
+  height: 120%;
+  max-width: none;
   object-fit: cover;
   pointer-events: none;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p1__media {
+    will-change: auto;
+  }
 }
 
 .p1__scrim {
@@ -352,11 +386,22 @@ img {
 
 .p2__media {
   position: absolute;
-  inset: 0;
+  top: -10%;
+  bottom: -10%;
+  left: 0;
+  right: 0;
   width: 100%;
-  height: 100%;
+  height: 120%;
+  max-width: none;
   object-fit: cover;
   pointer-events: none;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p2__media {
+    will-change: auto;
+  }
 }
 
 .p2__caption {
