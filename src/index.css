@@ -189,6 +189,51 @@ img {
   color: var(--color-muted);
 }
 
+/* ----- Paragraph fade-up reveal (FadeP) ----- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+
+.fade-up--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ----- Kinetic title word-by-word reveal (KineticTitle) ----- */
+.kt-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.38em);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+}
+
+.kt--visible .kt-word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kt-word {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ----- Scrollytelling hero sequence (ScrollyHero.tsx) ----- */
 .scrolly-wrapper {
   position: relative;
