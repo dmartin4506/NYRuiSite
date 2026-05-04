@@ -4,12 +4,18 @@ type P2SectionProps = {
   imageUrl: string
   caption: string
   imageAlt?: string
+  compact?: boolean
+  flip?: boolean
+  small?: boolean
 }
 
 export function P2Section({
   imageUrl,
   caption,
   imageAlt = '',
+  compact = false,
+  flip = false,
+  small = false,
 }: P2SectionProps) {
   const figureRef = useRef<HTMLElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
@@ -61,7 +67,7 @@ export function P2Section({
   }, [])
 
   return (
-    <figure ref={figureRef} className="p2">
+    <figure ref={figureRef} className={`p2${compact ? ' p2--compact' : ''}${flip ? ' p2--flip' : ''}${small ? ' p2--small' : ''}`}>
       <img
         ref={imgRef}
         className="p2__media"

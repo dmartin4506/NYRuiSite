@@ -5,6 +5,8 @@ type P1SectionProps = {
   title: string
   subtitle: string
   imageAlt?: string
+  portrait?: boolean
+  caption?: string
 }
 
 export function P1Section({
@@ -12,6 +14,8 @@ export function P1Section({
   title,
   subtitle,
   imageAlt = '',
+  portrait = false,
+  caption,
 }: P1SectionProps) {
   const titleId = useId()
   const sectionRef = useRef<HTMLElement>(null)
@@ -65,7 +69,7 @@ export function P1Section({
   }, [])
 
   return (
-    <section ref={sectionRef} className="p1" aria-labelledby={titleId}>
+    <section ref={sectionRef} className={`p1${portrait ? ' p1--portrait' : ''}`} aria-labelledby={titleId}>
       <img
         ref={imgRef}
         className="p1__media"
@@ -81,6 +85,9 @@ export function P1Section({
         </h2>
         <p className="p1__subtitle">{subtitle}</p>
       </div>
+      {caption && (
+        <p className="p1__caption">{caption}</p>
+      )}
     </section>
   )
 }

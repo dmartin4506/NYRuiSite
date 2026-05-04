@@ -5,6 +5,18 @@ import { P2Section } from './components/P2Section'
 import { ScrollyHero, type ScrollySlide } from './components/ScrollyHero'
 import { ScrollHighlightGrid, type GridItem } from './components/ScrollHighlightGrid'
 import {
+  afterLineBreak3,
+  afterP1c,
+  afterP1d,
+  afterP1e,
+  afterP2i,
+  afterP2j,
+  afterRuleBreak4,
+  afterP2b,
+  afterP2c,
+  afterP2d,
+  afterP2f,
+  afterP2g,
   beforeGrid,
   closingLong,
   followShort,
@@ -14,7 +26,19 @@ import {
   overallTitle,
   p1SectionA,
   p1SectionB,
+  p1SectionC,
+  p1SectionD,
+  p1SectionE,
   p2Caption,
+  p2bCaption,
+  p2cCaption,
+  p2dCaption,
+  p2eCaption,
+  p2fCaption,
+  p2gCaption,
+  p2hCaption,
+  p2iCaption,
+  p2jCaption,
   quotes,
   toParagraphs,
 } from './content/articleCopy'
@@ -100,9 +124,13 @@ function Prose({ text }: { text: string }) {
   const blocks = toParagraphs(text)
   return (
     <>
-      {blocks.map((p, i) => (
-        <FadeP key={i}>{p}</FadeP>
-      ))}
+      {blocks.map((p, i) =>
+        p === '---' ? (
+          <hr key={i} className="section-rule" />
+        ) : (
+          <FadeP key={i}>{p}</FadeP>
+        )
+      )}
     </>
   )
 }
@@ -124,6 +152,7 @@ export default function App() {
         imageUrl={images.p1a}
         title={p1SectionA.title}
         subtitle={p1SectionA.subtitle}
+        caption={p1SectionA.caption}
       />
 
       <ArticleColumn variant="narrow">
@@ -140,10 +169,99 @@ export default function App() {
         imageUrl={images.p1b}
         title={p1SectionB.title}
         subtitle={p1SectionB.subtitle}
+        portrait
       />
 
       <ArticleColumn variant="narrow">
         <Prose text={beforeGrid} />
+      </ArticleColumn>
+
+      <P2Section imageUrl={images.p2b} caption={p2bCaption} compact />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP2b} />
+      </ArticleColumn>
+
+      <P2Section imageUrl={images.p2c} caption={p2cCaption} compact flip />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP2c} />
+      </ArticleColumn>
+
+      <P1Section
+        imageUrl={images.p1c}
+        title={p1SectionC.title}
+        subtitle={p1SectionC.subtitle}
+        caption={p1SectionC.caption}
+      />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP1c} />
+      </ArticleColumn>
+
+      <P2Section imageUrl={images.p2d} caption={p2dCaption} compact small />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP2d} />
+      </ArticleColumn>
+
+      <P2Section imageUrl={images.p2e} caption={p2eCaption} compact flip />
+
+      <P2Section imageUrl={images.p2f} caption={p2fCaption} compact small />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP2f} />
+      </ArticleColumn>
+
+      <P2Section imageUrl={images.p2g} caption={p2gCaption} compact flip />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP2g} />
+        <Prose text={afterLineBreak3} />
+      </ArticleColumn>
+
+      <P1Section
+        imageUrl={images.p1d}
+        title={p1SectionD.title}
+        subtitle={p1SectionD.subtitle}
+        caption={p1SectionD.caption}
+      />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP1d} />
+      </ArticleColumn>
+
+      <P2Section imageUrl={images.p2h} caption={p2hCaption} compact small />
+
+      <div className="rule-spacer">
+        <hr className="section-rule" />
+      </div>
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterRuleBreak4} />
+      </ArticleColumn>
+
+      <P2Section imageUrl={images.p2i} caption={p2iCaption} compact flip />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP2i} />
+      </ArticleColumn>
+
+      <P1Section
+        imageUrl={images.p1e}
+        title={p1SectionE.title}
+        subtitle={p1SectionE.subtitle}
+        caption={p1SectionE.caption}
+      />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP1e} />
+      </ArticleColumn>
+
+      <P2Section imageUrl={images.p2j} caption={p2jCaption} compact small />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP2j} />
       </ArticleColumn>
 
       <ScrollHighlightGrid items={gridItems} />
