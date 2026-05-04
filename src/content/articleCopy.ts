@@ -17,6 +17,9 @@ export const images = {
   p2i: '/99 Week 2 Post Removed.JPG',
   p1e: '/Jin Week 1D 一个空间.jpg',
   p2j: '/Jin Week 1D 一个空间（喝酒和自然都让我很舒服，取舍不了）.JPG',
+  p2k: '/Pink.jpeg',
+  p2l: '/Xu Week 3D 清晰.jpg',
+  p2m: '/Shuyu Week 2B.jpg',
   p1b: '/Jin Week 2B 外界的教导.JPG',
   grid: [
     'https://picsum.photos/id/1062/800/600',
@@ -90,6 +93,15 @@ export const p2eCaption =
 
 export const p2fCaption =
   'Shuyu usually searches for sexual health information in bed. \u201cIt\u2019s more secluded\u201d.'
+
+export const p2mCaption =
+  'Shuyu is confused by the standard physical boundary between women. She describes panicking when her friend (left) accidentally touches her (middle).'
+
+export const p2lCaption =
+  'Z\u2019s favorite image from a recent trip she finally convinced her mother to take with her. Her mother took the photograph. For Z, the image symbolizes a new leap into a new life.'
+
+export const p2kCaption =
+  'Sunrise after 99\u2019s ICU shift.'
 
 export const p2jCaption =
   'Jin identifies the bar as a space where she feels more able to be herself. For her, both nature and alcohol create temporary openings: one through distance, the other through intimacy.'
@@ -371,6 +383,59 @@ She meant: I cannot say I am queer. Not at work. Not on the record. The acceptan
 The civil service does not require its employees to be straight. It requires them to be silent on the question. The silence is the price of the stability.
 
 ---
+`.trim()
+
+export const afterP2k = `
+99 had finished her three-year residency. I had just congratulated her on her degree defense. She had a path into a public-hospital surgical career — a 三甲, the highest tier, with a mentor who had moved to a new affiliate and was prepared to bring her along. Her mother wanted her to take it.
+
+99 has decided, against her mother’s wishes and against the easier path, to leave for medical esthetics, a private specialty. The role was a step away from the prestige of the public-hospital track. It was also a step into a different uniform — private clinic, private hours, no overnight rotations.
+
+She was leaving with full awareness of what she was leaving behind. Public hospitals absorb their physicians’ liability. “医疗事故的承担者只有你自己.” — In a medical accident, the only person carrying it is yourself. She was starting from scratch in a specialty she had not been trained in. “我相当于是一个小白. 我是零基础.” — I am basically a blank slate. Zero foundation.
+
+The reason was not financial. She told me about a morning she had photographed, a morning that became one of the images she sent for this project. She had worked a 22-hour shift in the ICU. She had clocked out at 5:50 a.m. The sun was rising over Shenzhen.
+
+“原来也可以看到朝阳.” — So this is what it looks like, the morning sun.
+
+She told me what the photograph meant to her.
+
+“这个日子不是我想要的东西.” — This is not the life I want.
+
+---
+`.trim()
+
+export const afterP2l = `
+Z was leaving China.
+
+She had received her acceptance to UPenn in the spring. The decision had been in her mother’s eyes, the wrong one. Her mother had wanted her to take the Hong Kong Polytechnic University offer. Z asked a family friend, a renowned professor, to call her mother on her behalf. “他给我打回来说任务完成了.” He called me back and said: Mission Accomplished. The professor had succeeded where Z’s tear-incontinent body had not. UPenn was confirmed.
+
+What her mother did not know was the rest of the calculation. Z had been long-distance from her girlfriend, Ming, for nearly two years — Ming is in Boston. The graduate program was Z’s professional life and also a vehicle for the kind of long-distance queer relationship that was not, in mainland China in 2026, easy to maintain. Moving away from her mother’s grip was the same gesture as moving toward Ming. They were one decision.
+
+---
+`.trim()
+
+export const afterP2m = `
+Shuyu’s version of the same constraint was smaller and quieter.
+
+“其实我还有个小小的一个标准，就是不想异地. 对，都在xx市.” — I have one small criterion. I don’t want long-distance. We have to both be in [the same city].
+`.trim()
+
+export const afterP2m2 = `
+---
+
+By the last week of the project, I had been thinking about something with no clear shape yet. The country’s professional and educational systems run on result-only-ism. The result in its standard form is built around a heterosexual marriage and a child. If the system is structured so that only this result counts as the real result, then queer women are competing in a category whose finish line has been moved out of reach without the legal framework for same sex marriage.
+
+I asked Jin whether she thought queer women’s emotional lives were structurally incompatible with result-only-ism.
+
+She did not answer the way I expected.
+“可能是因为大家追求的结果，其实可以把它笼统的称之为稳定的生活. 我说一系列，然后他们结婚生子，最后有了一段稳定的生活，相互依靠，稳定的感情，稳定的生活. 同样的，其实对于先少数来说，我觉得也是一样。也是找一个不错的伴侣，然后拥有一个稳定的生活. 然后两个人的关系可以被父母知道了解，支不支持另外说，就是知道了解，然后可以在一起居住生活.” Maybe the result everyone is chasing, when you boil it down, can just be called the stable life. The whole sequence — marriage, children, mutual reliance, a stable feeling, a stable life. For sexual minorities — I think it’s the same. Finding a good partner and having a stable life. Their parents knowing about it, knowing the relationship. The support is a separate matter, but at least the knowing — being able to live together.”
+
+Jin had also been thinking about how the country is slowly changing.
+
+“过去的几百年上千年都是比较同固定模式的一种压迫. 如果说你要在短期的五年、十年之内去做出改变，他没有办法很快的有反应.” For the past several hundred or thousand years it has been a fairly fixed pattern of suppression. To ask it to change within a short window — five years, ten years — it cannot respond that quickly.
+
+She also knew the rate at which it was changing was not the rate at which her own life was being lived. Z would have, in Philadelphia, what Jin would not — a country where the relationship could be named at the door of any apartment without translation. Jin cannot leave. Jin was sitting for the civil service exam. Jin had been thinking about how to live in the meantime.
+
+“我现在觉得佛教还挺好，就是一旦我接受了，人生下来就是为了受苦受难的话，那我对我现在经历的这一切我都毫无怨言. 真是毫无怨言. 然后就会让我稍微好受一点，因为我觉得这是我应得的. 虽然说我不信教，我只是觉得这个解释还没有没没没有蒓有实用意义.” I find Buddhism quite useful now. Once I accept that humans are born to suffer, I have no complaints about anything I am currently going through. Truly no complaints. It makes me feel slightly better, because I think this is what I deserve. I don’t believe in the religion. I just find the explanation has a kind of practical value.
 `.trim()
 
 /** ~600 words — closing */

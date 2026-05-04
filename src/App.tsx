@@ -11,6 +11,10 @@ import {
   afterP1e,
   afterP2i,
   afterP2j,
+  afterP2k,
+  afterP2l,
+  afterP2m,
+  afterP2m2,
   afterRuleBreak4,
   afterP2b,
   afterP2c,
@@ -18,7 +22,6 @@ import {
   afterP2f,
   afterP2g,
   beforeGrid,
-  closingLong,
   followShort,
   images,
   introWide,
@@ -39,6 +42,9 @@ import {
   p2hCaption,
   p2iCaption,
   p2jCaption,
+  p2kCaption,
+  p2lCaption,
+  p2mCaption,
   quotes,
   toParagraphs,
 } from './content/articleCopy'
@@ -264,11 +270,27 @@ export default function App() {
         <Prose text={afterP2j} />
       </ArticleColumn>
 
-      <ScrollHighlightGrid items={gridItems} />
+      <P2Section imageUrl={images.p2k} caption={p2kCaption} compact flip />
 
       <ArticleColumn variant="narrow">
-        <Prose text={closingLong} />
+        <Prose text={afterP2k} />
       </ArticleColumn>
+
+      <P2Section imageUrl={images.p2l} caption={p2lCaption} compact small />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP2l} />
+      </ArticleColumn>
+
+      <P2Section imageUrl={images.p2m} caption={p2mCaption} compact flip />
+
+      <ArticleColumn variant="narrow">
+        <Prose text={afterP2m} />
+        <Prose text={afterP2m2} />
+      </ArticleColumn>
+
+      <ScrollHighlightGrid items={gridItems} />
+
     </main>
   )
 }
