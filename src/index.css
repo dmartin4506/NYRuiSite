@@ -86,6 +86,11 @@ img {
   margin-bottom: 0;
 }
 
+.text-center,
+.article__prose p.text-center {
+  text-align: center;
+}
+
 .section-rule {
   border: none;
   border-top: 3px solid rgba(255, 255, 255, 0.85);
@@ -104,9 +109,19 @@ img {
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-align: center;
-  margin: 0 auto var(--vertical-section);
+  margin: 0 auto 0.5em;
   max-width: var(--article-wide);
   padding: var(--vertical-section) 1.5rem 0;
+}
+
+.overall-subtitle {
+  text-align: center;
+  font-style: italic;
+  font-size: clamp(0.95rem, 0.85rem + 0.5vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 auto 0;
+  max-width: var(--article-narrow);
+  padding: 0 1.5rem;
 }
 
 .section-heading {

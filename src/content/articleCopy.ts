@@ -1,8 +1,8 @@
 /** Placeholder photography — replace with project assets. */
 export const images = {
-  quote1: 'https://picsum.photos/id/1018/1920/1080',
-  quote2: 'https://picsum.photos/id/1015/1920/1080',
-  quote3: 'https://picsum.photos/id/1036/1920/1080',
+  quote1: '/Top 1.jpg',
+  quote2: '/Top 2.jpg',
+  quote3: '/Top 3.JPG',
   p1a: '/xu-week-1b.jpg',
   p2large: '/Jin Week 2A 最早接触到性.jpg',
   p2b: '/Xu Week 3C 困惑.jpg',
@@ -39,13 +39,16 @@ export function toParagraphs(text: string): string[] {
 }
 
 export const quotes = [
-  '“Home is not a place you find once; it is the quiet work of showing up for strangers until they become kin.”',
-  '“We measure policy in budgets, but dignity lives in doorways, couches, and the patience of a spare room.”',
-  '“If the story begins with judgment, we never reach the question that saves anyone: what would help tomorrow?”',
+  '“我现在都不怎么跟别人去聊这些东西，因为这些东西聊了，然后短期没有办法改变，会让你很抑郁.” — I don’t talk to people about these things anymore. Because once you talk about them, and they can’t be changed in the short term, it makes you depressed.',
+  '“我的草稿算里面全都是发不出去的东西.” — My drafts folder is full of things that I’m not allowed to post.',
+  '“现在已经完全没有了，就是只有一个空的标识.” — Now there’s nothing there. Only an empty label.',
 ] as const
 
 export const overallTitle =
-  'When Stability Vanishes, Stories Become the Map We Share'
+  '"Sorry, | the lifestyle you ordered | is out of stock"'
+
+export const overallSubtitle =
+  'Four queer women in China on what their bodies, their visibility, and their environment have asked of them.'
 
 export const p1SectionA = {
   title: 'Inheriting Silence',
@@ -120,13 +123,13 @@ export const p2Caption =
 
 /** ~250 words — wide column intro */
 export const introWide = `
-A record number of people across the country are experiencing homelessness or housing instability that never registers in a census form. They move through doubled homes, borrowed nights, and fragile arrangements that keep roofs overhead until one argument, one job loss, or one illness collapses the whole scaffolding. This project follows that invisible corridor between housed and unhoused, where resilience is less a trait than a daily negotiation with time.
+In the spring of 2026, I began a series of conversations with four queer women in mainland China. Each woman was given weekly photo prompts focusing on sexual health knowledge formation, sexuality expression, health information seeking, and platform communication channels. She took photographs of her own life in response, and met with me on voice calls to discuss what she had photographed and why. The conversations ran across 4 weeks for each participant. The photographs and the conversations are the primary material for this piece.
 
-You will read reporting shaped like an essay and essays shaped like reporting: charts become margins, interviews become chorus, and statistics become doorways into faces we usually blur for privacy. The aim is not to flatten complexity into a slogan. The aim is to keep enough friction in the narrative that policy cannot pretend it has solved what it has merely renamed.
+The four women are between twenty and twenty-six. They lived in Zhejiang, Shanghai, and Shenzhen. One is a finance graduate sitting for the civil service exam. One is a final-year medical resident who is also a lesbian lifestyle influencer on a Chinese social media platform. One is a research assistant with a business background. One is an undergraduate student studying marketing and sports management. All of them were born and raised in China and live there now. Each speaks for herself. None speaks for queer Chinese women as a category.
 
-If you have ever slept uneasily in a living room with your shoes beside the couch, you already understand part of this story. The rest belongs to organizers, outreach workers, tenants, and neighbors who turn spare keys into strategy. Listen for their verbs: stabilize, document, appeal, wait. Waiting is the cruel tax levied on almost everyone in this pipeline.
+I left China for the United States at thirteen and have been moving between the two cultures since. From outside, the difficulty of queer life in China is often understood as a single theory: that it is repressive, and the discussion ends there. I bring this project to you, to show fractions of the lived experiences of the four women I spoke with, from the inside.
 
-What follows is an invitation to move slowly. Scroll through image and text as you would walk a city block: pause at corners, read the fine print on signs, and refuse the shortcut that turns human detail into a moral lecture. The colors here are deliberately stark—black, white, and the gray space where most people actually live.
+This piece moves through four such specifics: what was inherited from school and family, where to learn what was not taught, what language and content are allowed on platforms, and what the “result” of a female queer relationship means.
 `.trim()
 
 /** ~500 words — narrow column */

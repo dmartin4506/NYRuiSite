@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from 'react'
+import { Fragment, useEffect, useRef, type ReactNode } from 'react'
 import { ArticleColumn } from './components/ArticleColumn'
 import { P1Section } from './components/P1Section'
 import { P2Section } from './components/P2Section'
@@ -27,6 +27,7 @@ import {
   introWide,
   narrowLong,
   overallTitle,
+  overallSubtitle,
   p1SectionA,
   p1SectionB,
   p1SectionC,
@@ -63,13 +64,20 @@ const gridItems: [GridItem, GridItem, GridItem, GridItem] = [
 ]
 
 /** Paragraph that fades up into view when it crosses the viewport */
-function FadeP({ children }: { children: ReactNode }) {
+function FadeP({ children, className }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    // If already in the viewport on mount, show immediately
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('fade-up--visible')
+      return
+    }
 
     const obs = new IntersectionObserver(
       ([entry]) => {
@@ -82,7 +90,7 @@ function FadeP({ children }: { children: ReactNode }) {
   }, [])
 
   return (
-    <p ref={ref} className="fade-up">
+    <p ref={ref} className={`fade-up${className ? ` ${className}` : ''}`}>
       {children}
     </p>
   )
@@ -111,16 +119,22 @@ function KineticTitle({ text }: { text: string }) {
     return () => obs.disconnect()
   }, [])
 
+  const tokens = text.split(' ')
+
   return (
     <h1 ref={ref} className="overall-title kt">
-      {text.split(' ').map((word, i) => (
-        <span
-          key={i}
-          className="kt-word"
-          style={{ transitionDelay: `${i * 60}ms` }}
-        >
-          {word}{' '}
-        </span>
+      {tokens.map((word, i) =>
+        word === '|' ? (
+          <br key={i} />
+        ) : (
+        <Fragment key={i}>
+          <span
+            className="kt-word"
+            style={{ transitionDelay: `${i * 60}ms` }}
+          >
+            {word}
+          </span>{' '}
+        </Fragment>
       ))}
     </h1>
   )
@@ -133,6 +147,8 @@ function Prose({ text }: { text: string }) {
       {blocks.map((p, i) =>
         p === '---' ? (
           <hr key={i} className="section-rule" />
+        ) : p.startsWith('*') && p.endsWith('*') ? (
+          <FadeP key={i} className="text-center"><em>{p.slice(1, -1)}</em></FadeP>
         ) : (
           <FadeP key={i}>{p}</FadeP>
         )
@@ -148,6 +164,7 @@ export default function App() {
 
       <header>
         <KineticTitle text={overallTitle} />
+        <p className="overall-subtitle">{overallSubtitle}</p>
       </header>
 
       <ArticleColumn variant="wide">
